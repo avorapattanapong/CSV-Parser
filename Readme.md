@@ -2,7 +2,7 @@
 
 ## Description
 This is a simple CSV parser that reads a CSV file and stores the data in an in-memory H2 database. The project is split into two parts, the backend and the frontend. The backend is built using Spring Boot and the frontend is built using React.
-The frontend is a simple UI that allows the user to upload a CSV file and view the data in a table. The backend is a REST API that allows the frontend to upload the CSV file and manages data.
+The frontend is a simple UI that allows the log to upload a CSV file and view the data in a table. The backend is a REST API that allows the frontend to upload the CSV file and manages data.
 
 ## Features
 - Upload a CSV file
@@ -16,7 +16,7 @@ The frontend is a simple UI that allows the user to upload a CSV file and view t
 2. UserService is built with dependency injection in mind. This allows the API to easily switch to a different implementation, such as serverless functions like Firebase or AWS Lambda.
 3. Database driver is setup to reduce boilerplate code using Hibernate.
 4. Lombok is also configured in order to reduce boilerplate code.
-5. Update user modal is not quite complete, the original value doesn't show up in the input fields and both values must be filled in for update to work.
+5. Update log modal is not quite complete, the original value doesn't show up in the input fields and both values must be filled in for update to work.
 
 ## Assumptions
 1. Name is not unique.
@@ -39,6 +39,6 @@ The frontend is a simple UI that allows the user to upload a CSV file and view t
 7. React app is created in Nextjs, which I do not have much experience with. With more time, I could optimize the setup and improve the performance, utilizing Nextjs.
 8. UI can be cleaned up a little more.
 9. Error handling on the UI is missing.
-10. The UI doesn't have a way to test retrieving a user by id. Accessible through `GET http://localhost:8081/users/{id}`
+10. The UI doesn't have a way to test retrieving a log by id. Accessible through `GET http://localhost:8081/logs/{id}`
 11. Linting should be configured to help maintain code formatting
-12. Add user modal should use a date picker for birthdate field.
+12. Add log modal should use a date picker for birthdate field.
