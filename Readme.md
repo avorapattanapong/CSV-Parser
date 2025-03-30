@@ -13,13 +13,10 @@ The frontend is a simple UI that allows the log to upload a CSV file and view th
 
 ## Things to note
 1. Even though the project is setup using h2 in-memory database, the database type can easily be converted to persistent database like MySQL or PostgreSQL by changing the configurations in `application.properties` file.
-2. UserService is built with dependency injection in mind. This allows the API to easily switch to a different implementation, such as serverless functions like Firebase or AWS Lambda.
-3. Database driver is setup to reduce boilerplate code using Hibernate.
-4. Lombok is also configured in order to reduce boilerplate code.
-5. Update log modal is not quite complete, the original value doesn't show up in the input fields and both values must be filled in for update to work.
+
 
 ## Assumptions
-1. Name is not unique.
+1. PIDs are unique.
 2. No authentication is required to access the API.
 3. No authorization is required to access the API.
 
@@ -31,14 +28,11 @@ The frontend is a simple UI that allows the log to upload a CSV file and view th
 
 ## Things To Improve
 1. There are multiple places that can be factored out to reduce code duplication
-2. Exceptions can be factored out to a more generic type instead of Users related exceptions
-3. Handle unique constraints in the database, current setup does not have any unique fields other than id
-4. Add unit tests to both frontend and backend
-5. React app dockerfile is not production-ready, it is currently setup to run in dev environment
-6. Performance may not be up to par
-7. React app is created in Nextjs, which I do not have much experience with. With more time, I could optimize the setup and improve the performance, utilizing Nextjs.
-8. UI can be cleaned up a little more.
-9. Error handling on the UI is missing.
-10. The UI doesn't have a way to test retrieving a log by id. Accessible through `GET http://localhost:8081/logs/{id}`
-11. Linting should be configured to help maintain code formatting
-12. Add log modal should use a date picker for birthdate field.
+2. Exceptions can be factored out to a more generic type instead of service related exceptions
+3. Add unit tests to frontend
+4. React app dockerfile is not production-ready, it is currently setup to run in dev environment
+5. Performance may not be up to par
+6. React app is created in Nextjs, which I do not have much experience with. With more time, I could optimize the setup and improve the performance, utilizing Nextjs.
+7. UI can be cleaned up a little more.
+8. Error handling on the UI is missing.
+9. Linting should be configured to help maintain code formatting

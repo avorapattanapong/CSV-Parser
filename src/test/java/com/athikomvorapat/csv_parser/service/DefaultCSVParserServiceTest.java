@@ -2,6 +2,7 @@ package com.athikomvorapat.csv_parser.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.fail;
 
 import com.athikomvorapat.csv_parser.dto.ParsedLogDto;
 import java.io.IOException;
@@ -54,11 +55,12 @@ public class DefaultCSVParserServiceTest {
         "file",
         "hello.txt",
         MediaType.TEXT_PLAIN_VALUE,
-        "Hello, World!".getBytes()
+        "hello,world,new,111111".getBytes()
     );
 
     try {
-      service.parseFile(testFile);
+      service.parseFile(file);
+      fail();
     } catch (CSVParserServiceException e) {
       assertEquals(DateTimeParseException.class, e.getCause().getClass());
     }
@@ -75,9 +77,32 @@ public class DefaultCSVParserServiceTest {
     );
 
     try {
-      service.parseFile(testFile);
+      service.parseFile(file);
+      fail();
     } catch (CSVParserServiceException e) {
       assertEquals("Invalid log entry: more parts than expected hello,world,new,world,test", e.getMessage());
+    }
+  }
+
+  @Test
+  public void testParseFileWithPidAppearingMoreThanTwice() throws Exception {
+    MockMultipartFile file
+        = new MockMultipartFile(
+        "file",
+        "hello.txt",
+        MediaType.TEXT_PLAIN_VALUE,
+        (
+            "11:35:23,scheduled task 032,START,37980\n" +
+            "11:38:23,scheduled task 032,END,37980\n" +
+            "11:39:23,scheduled task 032,END,37980"
+        ).getBytes()
+    );
+
+    try {
+      service.parseFile(file);
+      fail();
+    } catch (CSVParserServiceException e) {
+      assertEquals("Invalid log entry: more than 2 entries for pid 37980", e.getMessage());
     }
   }
 
