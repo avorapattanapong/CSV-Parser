@@ -22,6 +22,12 @@ The frontend is a simple UI that allows the log to upload a CSV file and view th
 2. No authentication is required to access the API.
 3. No authorization is required to access the API.
 
+## Pre-requisites
+1. Lastest Docker Desktop
+2. Node version 20.18.0
+3. NPM version 10.8.2
+4. Java 17
+
 ## How to run the project
 1. Clone the repository
 2. In the root directory, run `docker-compose up --build -d` to build and run the docker container

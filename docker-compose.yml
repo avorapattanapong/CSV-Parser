@@ -1,0 +1,14 @@
+version: '3'
+services:
+  spring-boot-app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+  react-app:
+    build:
+      context: ui-bundle/csv-parser
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
