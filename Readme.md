@@ -27,6 +27,7 @@ The frontend is a simple UI that allows the log to upload a CSV file and view th
 2. In the root directory, run `docker-compose up --build -d` to build and run the docker container
 3. Go to `http://localhost:3000` to access the frontend
 4. Note that due to some performance issues, the page might need to be refreshed a few times to load ui-library
+5. The backend API is accessible through `http://localhost:8081`
 
 ## Things To Improve
 1. There are multiple places that can be factored out to reduce code duplication
@@ -37,4 +38,5 @@ The frontend is a simple UI that allows the log to upload a CSV file and view th
 6. React app is created in Nextjs, which I do not have much experience with. With more time, I could optimize the setup and improve the performance, utilizing Nextjs.
 7. UI can be cleaned up a little more.
 8. Error handling on the UI is missing.
-9. Linting should be configured to help maintain code formatting
+9. Linting should be configured to help maintain code formatting.
+10. On the UI, when labeling record as warning or error, there should be validation of the time format.
