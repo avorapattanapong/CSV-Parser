@@ -13,6 +13,8 @@ The frontend is a simple UI that allows the log to upload a CSV file and view th
 
 ## Things to note
 1. Even though the project is setup using h2 in-memory database, the database type can easily be converted to persistent database like MySQL or PostgreSQL by changing the configurations in `application.properties` file.
+2. The main file that contains the logic for parsing the CSV file is `CSVParserService.java`. The class takes advantage of Spring's dependency injection to allow for easy swapping of implementations. If a different CSV format is required, a new implementation can be created and injected into the service.
+3. The main file that contains processing Logs and storing is `LogService.java`. The service consolidates data by pid and stores the data in the database.
 
 
 ## Assumptions
