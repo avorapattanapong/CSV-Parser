@@ -7,9 +7,9 @@ The frontend is a simple UI that allows the log to upload a CSV file and view th
 ## Features
 - Upload a CSV file
 - View the data in a table
-- Sort the data by column (?)
-- Search the data by column (?)
+- Clear logs from the table
 - Add a warning if row have a duration is longer than the configured threshold
+- Persist log data
 
 ## Things to note
 1. Even though the project is setup using h2 in-memory database, the database type can easily be converted to persistent database like MySQL or PostgreSQL by changing the configurations in `application.properties` file.
